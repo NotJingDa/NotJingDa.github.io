@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You!</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get form input values from localStorage and display on the thank you page
+        const name = localStorage.getItem("contact-form-name");
+        const email = localStorage.getItem("contact-form-email");
+        const message = localStorage.getItem("contact-form-message");
+
+        if (name && email && message) {
+          document.getElementById("name-value").textContent = name;
+          document.getElementById("email-value").textContent = email;
+          document.getElementById("message-value").textContent = message;
+          localStorage.clear(); // Clear form data from localStorage after displaying
+        } else {
+          // If form data is not available, redirect to the contact page
+          window.location.href = "contact.html";
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="Hobby.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 class="sizety">Thank You!</h2>
+        <p class="sizety2">Thank you for reaching out.I appreciate your message.</p>
+
+        <h3 class="sizety2" style="color: aliceblue;">Here's the information you provided:</h3>
+        <p class="sizety2"><strong>Name:</strong> <span id="name-value"></span></p>
+        <p class="sizety2"><strong>Email:</strong> <span id="email-value"></span></p>
+        <p class="sizety2"><strong>Message:</strong></p>
+        <p class="sizety2" id="message-value"></p>
+      </section>
+    </main>
+
+    <footer class="footer2">
+      <p>&copy; 2023 My Hobby Website. All rights reserved.</p>
+    </footer>
+  
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
